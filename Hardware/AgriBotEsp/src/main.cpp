@@ -17,7 +17,7 @@ const unsigned long wifiCheckInterval = 30000;
 
 // Firebase configuration
 #define DATABASE_URL "https://big-agri-bot-default-rtdb.asia-southeast1.firebasedatabase.app/"
-#define API_KEY "AIzaSyBstENJ1VGB9kcDHX3h1kWbiWCL7is6XRc"
+#define API_KEY "YOUR_API_KEY"
 
 // Define Firebase objects
 FirebaseData fbdoStream, fbdo, fbdoSensorData;
@@ -104,8 +104,8 @@ void connectToFirebase() {
   fbdo.setBSSLBufferSize(4096, 1024);
   fbdo.setResponseSize(2048);
 
-  auth.user.email = "venkatnvs2005@gmail.com";
-  auth.user.password = "venkat123";
+  auth.user.email = "YOUR_EMAIL@gmail.com";
+  auth.user.password = "YOUR_PASSWORD";
   Firebase.begin(&config, &auth);
 
   // Wait for Firebase to be ready
@@ -533,4 +533,5 @@ void streamTimeoutCallback(bool timeout)
     Serial.println("Stream disconnected, trying to reconnect...");
   }
   Firebase.RTDB.beginStream(&fbdoStream, commandPath);
+
 }
